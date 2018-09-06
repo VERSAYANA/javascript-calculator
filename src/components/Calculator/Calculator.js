@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import './Board.css';
+import './Calculator.css';
+import Display from '../Display/Display';
 
-class Board extends Component {
+class Calculator extends Component {
   render() {
     return (
       <div id="calculator">
-        <div id="display" />
+        <Display />
         <div id="board">
           <div id="numbers">
             <div id="one" className="button">
@@ -76,4 +77,4 @@ class Board extends Component {
   }
 }
 
-export default Board;
+export default Calculator;

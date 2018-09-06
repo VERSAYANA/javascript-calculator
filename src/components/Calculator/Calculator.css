@@ -1,27 +1,7 @@
-/* #board {
-  background-color: var(--primary-color);
-  display: grid;
-  grid-template: repeat(4, 70px) / repeat(3, 70px);
-  color: rgba(255, 255, 255, 0.87);
-  justify-items: center;
-  align-items: center;
-}
-#operators {
-  background-color: var(--accent-color);
-  display: grid;
-  grid-template: repeat(5, 56px) / 70px;
-  color: rgba(255, 255, 255, 0.87);
-  justify-items: center;
-  align-items: center;
-} */
 #calculator {
   display: flex;
   flex-direction: column;
   background-color: black;
-}
-#display {
-  height: 64px;
-  background-color: brown;
 }
 #board {
   display: flex;
@@ -43,6 +23,7 @@
 }
 .button:hover {
   box-shadow: var(--shadow-2dp);
+  color: #fff;
 }
 #oprators {
   background-color: var(--accent-color);
