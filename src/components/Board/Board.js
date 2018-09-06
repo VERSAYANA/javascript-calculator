@@ -1,30 +1,20 @@
 import React from 'react';
 import './Board.css';
 import CalButton from '../CalButton/CalButton';
+import { numbers, oprators } from '../../buttons';
 
-const Board = () => {
+const Board = ({ newInput }) => {
   return (
     <div id="board">
       <div id="numbers">
-        <CalButton id="one" value="1" />
-        <CalButton id="two" value="2" />
-        <CalButton id="three" value="3" />
-        <CalButton id="four" value="4" />
-        <CalButton id="five" value="5" />
-        <CalButton id="six" value="6" />
-        <CalButton id="seven" value="7" />
-        <CalButton id="eight" value="8" />
-        <CalButton id="nine" value="9" />
-        <CalButton id="decimal" value="." />
-        <CalButton id="zero" value="0" />
-        <CalButton id="equal" value="=" />
+        {numbers.map((n) => (
+          <CalButton id={n.id} value={n.value} key={n.id} handleClick={newInput} />
+        ))}
       </div>
       <div id="oprators">
-        <CalButton id="clear" value="AC" />
-        <CalButton id="divide" value="/" />
-        <CalButton id="multiply" value="&times;" />
-        <CalButton id="subtract" value="-" />
-        <CalButton id="add" value="+" />
+        {oprators.map((o) => (
+          <CalButton id={o.id} value={o.value} key={o.id} handleClick={newInput} />
+        ))}
       </div>
     </div>
   );
