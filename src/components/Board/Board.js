@@ -1,63 +1,30 @@
 import React from 'react';
 import './Board.css';
+import CalButton from '../CalButton/CalButton';
 
 const Board = () => {
   return (
     <div id="board">
       <div id="numbers">
-        <div id="one" className="button">
-          1
-        </div>
-        <div id="two" className="button">
-          2
-        </div>
-        <div id="three" className="button">
-          3
-        </div>
-        <div id="four" className="button">
-          4
-        </div>
-        <div id="five" className="button">
-          5
-        </div>
-        <div id="six" className="button">
-          6
-        </div>
-        <div id="seven" className="button">
-          7
-        </div>
-        <div id="eight" className="button">
-          8
-        </div>
-        <div id="nine" className="button">
-          9
-        </div>
-        <div id="decimal" className="button">
-          .
-        </div>
-        <div id="zero" className="button">
-          0
-        </div>
-        <div id="equal" className="button">
-          =
-        </div>
+        <CalButton id="one" value="1" />
+        <CalButton id="two" value="2" />
+        <CalButton id="three" value="3" />
+        <CalButton id="four" value="4" />
+        <CalButton id="five" value="5" />
+        <CalButton id="six" value="6" />
+        <CalButton id="seven" value="7" />
+        <CalButton id="eight" value="8" />
+        <CalButton id="nine" value="9" />
+        <CalButton id="decimal" value="." />
+        <CalButton id="zero" value="0" />
+        <CalButton id="equal" value="=" />
       </div>
       <div id="oprators">
-        <div id="clear" className="button">
-          AC
-        </div>
-        <div id="divide" className="button">
-          /
-        </div>
-        <div id="multiply" className="button">
-          &times;
-        </div>
-        <div id="subtract" className="button">
-          -
-        </div>
-        <div id="add" className="button">
-          +
-        </div>
+        <CalButton id="clear" value="AC" />
+        <CalButton id="divide" value="/" />
+        <CalButton id="multiply" value="&times;" />
+        <CalButton id="subtract" value="-" />
+        <CalButton id="add" value="+" />
       </div>
     </div>
   );
