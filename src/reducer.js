@@ -1,4 +1,5 @@
 import { NEW_INPUT, CALCULATE_RESULT, CLEAR } from './actionTypes';
+import calResult from './modules/calResult';
 
 const initialState = {
   input: '',
@@ -10,10 +11,6 @@ const isOperator = (char) => {
   }
   return false;
 };
-
-const calResult = (input) => {
-
-}
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -34,8 +31,10 @@ export default function(state = initialState, action) {
           result: 0,
         };
       }
+    
 
       if (action.input === '=') {
+        console.log(calResult(state.input));
         return {
           input: state.input,
           result: calResult(state.input)
