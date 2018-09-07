@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './Board.css';
 import CalButton from '../CalButton/CalButton';
 import { numbers, oprators } from '../../buttons';
@@ -19,5 +20,9 @@ const Board = ({ newInput }) => {
     </div>
   );
 };
+
+Board.propTypes = {
+  newInput: PropTypes.func
+}
 
 export default Board;

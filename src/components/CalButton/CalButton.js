@@ -16,6 +16,7 @@ const CalButton = ({ value, id, handleClick }) => {
 CalButton.propTypes = {
   value: PropTypes.string,
   id: PropTypes.string,
+  handleClick: PropTypes.func
 };
 
 export default CalButton;
