@@ -14,6 +14,22 @@ export default function(state = initialState, action) {
       const lastCharIndex = state.input.length - 1;
       const lastChar = state.input.charAt(lastCharIndex);
 
+      if (action.input === 'AC') {
+        return {
+          input: '',
+          result: 0,
+          display: 0,
+        };
+      }
+
+      if (action.input === '=') {
+        return {
+          input: state.input + action.input,
+          result: calResult(state.input),
+          display: calResult(state.input),
+        };
+      }
+
       if (isOperator(action.input)) {
         if (isOperator(lastChar)) {
           return {
@@ -27,22 +43,6 @@ export default function(state = initialState, action) {
           input: state.input + action.input,
           result: state.result,
           display: action.input,
-        };
-      }
-
-      if (action.input === 'AC') {
-        return {
-          input: '',
-          result: 0,
-          display: 0,
-        };
-      }
-
-      if (action.input === '=') {
-        return {
-          input: state.input,
-          result: calResult(state.input),
-          display: calResult(state.input),
         };
       }
 
@@ -62,7 +62,7 @@ export default function(state = initialState, action) {
         }
       }
 
-      if (state.result > 0 && state.result === state.display) {
+      if (lastChar === '=') {
         return {
           input: action.input,
           result: 0,

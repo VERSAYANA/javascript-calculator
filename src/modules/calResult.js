@@ -1,8 +1,8 @@
 function calResult(input) {
-  const numbers = input.split(/[\/+x-]/);
-  const operators = input.split(/[^\/+x-]/).filter((x) => x);
+  const numbers = input.split(/[/+x-]/);
+  const operators = input.split(/[^/+x-]/).filter((x) => x);
 
-  return calImmediateExecutionResult(numbers, operators)
+  return +calImmediateExecutionResult(numbers, operators).toFixed(6);
 }
 
 function calImmediateExecutionResult(numbers, operators) {

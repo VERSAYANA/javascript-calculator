@@ -10,7 +10,7 @@ class Calculator extends Component {
     const { input, result, newInput, display } = this.props;
     return (
       <div id="calculator">
-        <Display value={display} />
+        <Display value={display} input={input} />
         <Board
           newInput={newInput}
         />
