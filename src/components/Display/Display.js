@@ -1,10 +1,14 @@
 import React from 'react';
-import './Display.css'
+import PropTypes from 'prop-types';
 
-const Display = () => {
-  return (
-    <div id="display" />
-  )
-}
+import './Display.css';
+
+const Display = ({ value }) => {
+  return <div id="display">{value}</div>;
+};
+
+Display.propTypes = {
+  value: PropTypes.string,
+};
 
 export default Display;

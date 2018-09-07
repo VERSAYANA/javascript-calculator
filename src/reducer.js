@@ -1,15 +1,11 @@
-import { NEW_INPUT, CALCULATE_RESULT, CLEAR } from './actionTypes';
+import { NEW_INPUT } from './actionTypes';
 import calResult from './modules/calResult';
+import isOperator from './modules/isOpreator';
 
 const initialState = {
   input: '',
-  result: '',
-};
-const isOperator = (char) => {
-  if (char === '+' || char === '-' || char === 'x' || char === '/') {
-    return true;
-  }
-  return false;
+  result: 0,
+  display: '',
 };
 
 export default function(state = initialState, action) {
@@ -18,10 +14,19 @@ export default function(state = initialState, action) {
       const lastCharIndex = state.input.length - 1;
       const lastChar = state.input.charAt(lastCharIndex);
 
-      if (isOperator(action.input) && isOperator(lastChar)) {
+      if (isOperator(action.input)) {
+        if (isOperator(lastChar)) {
+          return {
+            input: state.input.slice(0, lastCharIndex) + action.input,
+            result: state.result,
+            display: action.input,
+          };
+        }
+
         return {
-          input: state.input.slice(0, lastCharIndex) + action.input,
+          input: state.input + action.input,
           result: state.result,
+          display: action.input,
         };
       }
 
@@ -29,34 +34,47 @@ export default function(state = initialState, action) {
         return {
           input: '',
           result: 0,
+          display: 0,
         };
       }
-    
 
       if (action.input === '=') {
-        console.log(calResult(state.input));
         return {
           input: state.input,
-          result: calResult(state.input)
+          result: calResult(state.input),
+          display: calResult(state.input),
+        };
+      }
+
+      if (isOperator(lastChar)) {
+        return {
+          input: state.input + action.input,
+          result: state.result,
+          display: action.input,
+        };
+      }
+
+      if (state.display == 0) {
+        return {
+          input: action.input,
+          result: 0,
+          display: action.input
+        }
+      }
+
+      if (state.result > 0 && state.result === state.display) {
+        return {
+          input: action.input,
+          result: 0,
+          display: action.input
         }
       }
 
       return {
         input: state.input + action.input,
         result: state.result,
+        display: state.display + action.input,
       };
-      break;
-
-    // case CALCULATE_RESULT:
-
-    //   break;
-
-    // case CLEAR:
-    //   return {
-    //     input: '',
-    //     result: 0,
-    //   };
-    //   break;
 
     default:
       return state;

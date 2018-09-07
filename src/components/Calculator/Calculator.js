@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clear, calculateResult, newInput } from '../../actions';
+import { newInput } from '../../actions';
 import './Calculator.css';
 import Display from '../Display/Display';
 import Board from '../Board/Board';
 
 class Calculator extends Component {
   render() {
-    const { input, result, clear, calculateResult, newInput } = this.props;
+    const { input, result, newInput, display } = this.props;
     return (
       <div id="calculator">
-        <Display input={input} result={result} />
+        <Display value={display} />
         <Board
-          clear={clear}
-          calculateResult={calculateResult}
           newInput={newInput}
         />
       </div>
@@ -24,10 +22,11 @@ class Calculator extends Component {
 const mapStateToProps = (state) => ({
   input: state.input,
   result: state.result,
+  display: state.display
 });
 const mapDispatchToProps = (dispatch) => ({
-  clear: () => dispatch(clear()),
-  calculateResult: () => dispatch(calculateResult()),
+  // clear: () => dispatch(clear()),
+  // calculateResult: () => dispatch(calculateResult()),
   newInput: (input) => dispatch(newInput(input)),
 });
 

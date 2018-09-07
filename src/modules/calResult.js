@@ -1,4 +1,3 @@
-"use strict"
 function calResult(input) {
   const numbers = input.split(/[\/+x-]/);
   const operators = input.split(/[^\/+x-]/).filter((x) => x);
