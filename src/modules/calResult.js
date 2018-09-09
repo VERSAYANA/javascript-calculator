@@ -2,7 +2,7 @@ function calResult(input) {
   const numbers = input.split(/[/+x-]/);
   const operators = input.split(/[^/+x-]/).filter((x) => x);
 
-  return +calImmediateExecutionResult(numbers, operators).toFixed(6);
+  return +calFormulaExpression(numbers, operators).toFixed(6);
 }
 
 function calImmediateExecutionResult(numbers, operators) {
@@ -19,6 +19,40 @@ function calImmediateExecutionResult(numbers, operators) {
     [opResult, ...numbers.slice(2)],
     operators.slice(1),
   );
+}
+
+function calFormulaExpression(numbers, operators) {
+  if (numbers.length === 1) {
+    return numbers[0];
+  }
+
+  const firstMultiplyDivideIndex = findFirstMultiplyDivideIndex(operators);
+  const number1 = parseFloat(numbers[firstMultiplyDivideIndex]);
+  const number2 = parseFloat(numbers[firstMultiplyDivideIndex + 1]);
+  const operator = operators[firstMultiplyDivideIndex];
+
+  const opResult = operate(number1, number2, operator);
+
+  return calFormulaExpression(
+    [
+      ...numbers.slice(0, firstMultiplyDivideIndex),
+      opResult,
+      ...numbers.slice(firstMultiplyDivideIndex + 2),
+    ],
+    [
+      ...operators.slice(0, firstMultiplyDivideIndex),
+      ...operators.slice(firstMultiplyDivideIndex + 1),
+    ],
+  );
+}
+
+function findFirstMultiplyDivideIndex(operators) {
+  for (let i = 0; i < operators.length; i++) {
+    if (operators[i] === 'x' || operators[i] === '/') {
+      return i;
+    }
+  }
+  return 0;
 }
 
 function operate(a, b, operator) {
