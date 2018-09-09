@@ -2,11 +2,13 @@ import { NEW_INPUT, CHANGE_LOGIC } from './actionTypes';
 import calResult from './modules/calResult';
 import isOperator from './modules/isOpreator';
 
+// logic = true : Formula
+// logic = false : Immediate
 const initialState = {
   input: '',
   result: 0,
   display: '',
-  logic: 'formula',
+  logic: true,
 };
 
 export default function(state = initialState, action) {

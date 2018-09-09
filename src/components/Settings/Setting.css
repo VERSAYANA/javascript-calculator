@@ -1,0 +1,11 @@
+#settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  box-shadow: var(--shadow-4dp);
+  box-sizing: border-box;
+  height: 100%;
+  width: 280px;
+  padding: 16px;
+}
