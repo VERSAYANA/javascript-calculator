@@ -1,8 +1,13 @@
-function calResult(input) {
+function calResult(input, logic) {
   const numbers = input.split(/[/+x-]/);
   const operators = input.split(/[^/+x-]/).filter((x) => x);
 
-  return +calFormulaExpression(numbers, operators).toFixed(6);
+  if(logic === "formula") {
+    return +calFormulaExpression(numbers, operators).toFixed(6);
+  }
+  if (logic === "immidiate") {
+    return +calImmediateExecutionResult(numbers, operators).toFixed(6);
+  }
 }
 
 function calImmediateExecutionResult(numbers, operators) {

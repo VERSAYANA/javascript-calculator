@@ -1,4 +1,4 @@
-import { NEW_INPUT } from './actionTypes';
+import { NEW_INPUT, CHANGE_LOGIC } from './actionTypes';
 import calResult from './modules/calResult';
 import isOperator from './modules/isOpreator';
 
@@ -6,6 +6,7 @@ const initialState = {
   input: '',
   result: 0,
   display: '',
+  logic: 'formula',
 };
 
 export default function(state = initialState, action) {
@@ -19,14 +20,16 @@ export default function(state = initialState, action) {
           input: '',
           result: 0,
           display: 0,
+          logic: state.logic,
         };
       }
 
       if (action.input === '=') {
         return {
           input: state.input + action.input,
-          result: calResult(state.input),
-          display: calResult(state.input),
+          result: calResult(state.input, state.logic),
+          display: calResult(state.input, state.logic),
+          logic: state.logic,
         };
       }
 
@@ -36,6 +39,7 @@ export default function(state = initialState, action) {
             input: state.input.slice(0, lastCharIndex) + action.input,
             result: state.result,
             display: action.input,
+            logic: state.logic,
           };
         }
 
@@ -43,6 +47,16 @@ export default function(state = initialState, action) {
           input: state.input + action.input,
           result: state.result,
           display: action.input,
+          logic: state.logic,
+        };
+      }
+
+      if (lastChar === '=') {
+        return {
+          input: action.input,
+          result: 0,
+          display: action.input,
+          logic: state.logic,
         };
       }
 
@@ -51,6 +65,7 @@ export default function(state = initialState, action) {
           input: state.input + action.input,
           result: state.result,
           display: action.input,
+          logic: state.logic,
         };
       }
 
@@ -58,23 +73,23 @@ export default function(state = initialState, action) {
         return {
           input: action.input,
           result: 0,
-          display: action.input
-        }
-      }
-
-      if (lastChar === '=') {
-        return {
-          input: action.input,
-          result: 0,
-          display: action.input
-        }
+          display: action.input,
+          logic: state.logic,
+        };
       }
 
       return {
         input: state.input + action.input,
         result: state.result,
         display: state.display + action.input,
+        logic: state.logic,
       };
+
+    case CHANGE_LOGIC:
+      return {
+        ...state,
+        logic: action.logic
+      }
 
     default:
       return state;
