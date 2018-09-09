@@ -1,6 +1,5 @@
-import { NEW_INPUT, CHANGE_LOGIC } from './actionTypes';
+import { NEW_INPUT, CHANGE_LOGIC, CHANGE_THEME } from './actionTypes';
 
-// export const clear = () => ({ type: CLEAR });
-// export const calculateResult = () => ({ type: CALCULATE_RESULT });
 export const newInput = (input) => ({ type: NEW_INPUT, input });
-export const changeLogic = (logic) => ({ type: CHANGE_LOGIC, logic })
+export const changeLogic = (logic) => ({ type: CHANGE_LOGIC, logic });
+export const changeTheme = (theme) => ({ type: CHANGE_THEME, theme });

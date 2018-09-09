@@ -1,14 +1,17 @@
-import { NEW_INPUT, CHANGE_LOGIC } from './actionTypes';
+import { NEW_INPUT, CHANGE_LOGIC, CHANGE_THEME } from './actionTypes';
 import calResult from './modules/calResult';
 import isOperator from './modules/isOpreator';
 
 // logic = true : Formula
 // logic = false : Immediate
+// theme = true : Dark
+// theme = false : Light
 const initialState = {
   input: '',
   result: 0,
   display: '',
   logic: true,
+  theme: true,
 };
 
 export default function(state = initialState, action) {
@@ -23,6 +26,7 @@ export default function(state = initialState, action) {
           result: 0,
           display: 0,
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -32,6 +36,7 @@ export default function(state = initialState, action) {
           result: calResult(state.input, state.logic),
           display: calResult(state.input, state.logic),
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -42,6 +47,7 @@ export default function(state = initialState, action) {
             result: state.result,
             display: action.input,
             logic: state.logic,
+            theme: state.theme,
           };
         }
 
@@ -50,6 +56,7 @@ export default function(state = initialState, action) {
           result: state.result,
           display: action.input,
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -59,6 +66,7 @@ export default function(state = initialState, action) {
           result: 0,
           display: action.input,
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -68,6 +76,7 @@ export default function(state = initialState, action) {
           result: state.result,
           display: action.input,
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -77,6 +86,7 @@ export default function(state = initialState, action) {
           result: 0,
           display: action.input,
           logic: state.logic,
+          theme: state.theme,
         };
       }
 
@@ -85,12 +95,19 @@ export default function(state = initialState, action) {
         result: state.result,
         display: state.display + action.input,
         logic: state.logic,
+        theme: state.theme,
       };
 
     case CHANGE_LOGIC:
       return {
         ...state,
-        logic: action.logic
+        logic: action.logic,
+      };
+
+    case CHANGE_THEME:
+      return {
+        ...state,
+        theme: action.theme
       }
 
     default:
