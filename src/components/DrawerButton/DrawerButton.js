@@ -12,6 +12,8 @@ const DrawerButton = ({ toggle }) => {
   );
 };
 
-DrawerButton.propTypes = {};
+DrawerButton.propTypes = {
+  toggle: PropTypes.func,
+};
 
 export default DrawerButton;
