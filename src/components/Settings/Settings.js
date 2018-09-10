@@ -6,9 +6,9 @@ import './Setting.css';
 
 class Settings extends Component {
   render() {
-    const { changeLogic, logic, changeTheme, theme } = this.props;
+    const { changeLogic, logic, changeTheme, theme, open } = this.props;
     return (
-      <div id="settings">
+      <div id="settings" className={open ? 'drawer-open' : 'drawer-close'}>
         <Switch
           title="Logic"
           change={changeLogic}
@@ -31,6 +31,7 @@ class Settings extends Component {
 const mapStateToProps = (state) => ({
   logic: state.logic,
   theme: state.theme,
+  open: state.drawer,
 });
 const mapDispatchToProps = (dispatch) => ({
   changeLogic: (logic) => dispatch(changeLogic(logic)),

@@ -7,6 +7,13 @@
   box-shadow: var(--shadow-4dp);
   box-sizing: border-box;
   height: 100%;
-  /* width: 280px; */
+  /* width: 360px; */
   padding: 16px;
+  transition: transform 0.4s;
+}
+.drawer-open {
+  transform: translateX(0);
+}
+.drawer-close {
+  transform: translateX(-100%);
 }

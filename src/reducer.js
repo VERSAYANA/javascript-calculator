@@ -1,4 +1,9 @@
-import { NEW_INPUT, CHANGE_LOGIC, CHANGE_THEME } from './actionTypes';
+import {
+  NEW_INPUT,
+  CHANGE_LOGIC,
+  CHANGE_THEME,
+  TOGGLE_DRAWER,
+} from './actionTypes';
 import calResult from './modules/calResult';
 import isOperator from './modules/isOpreator';
 
@@ -12,6 +17,7 @@ const initialState = {
   display: '',
   logic: true,
   theme: true,
+  drawer: false,
 };
 
 export default function(state = initialState, action) {
@@ -27,6 +33,7 @@ export default function(state = initialState, action) {
           display: 0,
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -37,6 +44,7 @@ export default function(state = initialState, action) {
           display: calResult(state.input, state.logic),
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -48,6 +56,7 @@ export default function(state = initialState, action) {
             display: action.input,
             logic: state.logic,
             theme: state.theme,
+            drawer: false,
           };
         }
 
@@ -57,6 +66,7 @@ export default function(state = initialState, action) {
           display: action.input,
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -67,6 +77,7 @@ export default function(state = initialState, action) {
           display: action.input,
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -77,6 +88,7 @@ export default function(state = initialState, action) {
           display: action.input,
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -87,6 +99,7 @@ export default function(state = initialState, action) {
           display: action.input,
           logic: state.logic,
           theme: state.theme,
+          drawer: false,
         };
       }
 
@@ -96,6 +109,7 @@ export default function(state = initialState, action) {
         display: state.display + action.input,
         logic: state.logic,
         theme: state.theme,
+        drawer: false,
       };
 
     case CHANGE_LOGIC:
@@ -107,8 +121,14 @@ export default function(state = initialState, action) {
     case CHANGE_THEME:
       return {
         ...state,
-        theme: action.theme
-      }
+        theme: action.theme,
+      };
+
+    case TOGGLE_DRAWER:
+      return {
+        ...state,
+        drawer: !state.drawer,
+      };
 
     default:
       return state;
