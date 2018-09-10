@@ -9,14 +9,14 @@ const Switch = ({ title, change, trueText, falseText, value }) => {
       <div>
         <button
           id="left-button"
-          className={value ? 'switch-button switch-active' : 'switch-button'}
+          className={`switch-button ${value ? 'switch-active' : ''}`}
           onClick={() => change(true)}
         >
           {trueText}
         </button>
         <button
           id="right-button"
-          className={!value ? 'switch-button switch-active' : 'switch-button'}
+          className={`switch-button ${!value ? 'switch-active' : ''}`}
           onClick={() => change(false)}
         >
           {falseText}

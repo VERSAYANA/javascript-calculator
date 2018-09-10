@@ -6,7 +6,18 @@
   align-items: center;
   cursor: pointer;
 }
-.button:hover {
+/* .button:hover {
   box-shadow: var(--shadow-2dp);
+} */
+.number-button:hover {
+  color: var(--accent-color);
+}
+.operator-button:hover {
+  color: var(--primary-color);
+}
+/* .dark-theme .button:hover {
   color: #fff;
 }
+.light-theme .button:hover {
+  color: #000
+} */

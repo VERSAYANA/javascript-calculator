@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import './Board.css';
 import CalButton from '../CalButton/CalButton';
 import { numbers, oprators } from '../../buttons';
@@ -9,12 +9,24 @@ const Board = ({ newInput }) => {
     <div id="board">
       <div id="numbers">
         {numbers.map((n) => (
-          <CalButton id={n.id} value={n.value} key={n.id} handleClick={newInput} />
+          <CalButton
+            id={n.id}
+            value={n.value}
+            key={n.id}
+            handleClick={newInput}
+            type="number"
+          />
         ))}
       </div>
       <div id="oprators">
         {oprators.map((o) => (
-          <CalButton id={o.id} value={o.value} key={o.id} handleClick={newInput} />
+          <CalButton
+            id={o.id}
+            value={o.value}
+            key={o.id}
+            handleClick={newInput}
+            type="operator"
+          />
         ))}
       </div>
     </div>
@@ -22,7 +34,7 @@ const Board = ({ newInput }) => {
 };
 
 Board.propTypes = {
-  newInput: PropTypes.func
-}
+  newInput: PropTypes.func,
+};
 
 export default Board;
