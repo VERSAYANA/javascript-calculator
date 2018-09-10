@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { changeLogic, changeTheme, toggleDrawer } from '../../actions';
 import Switch from '../Switch/Switch';
+import DrawerButton from '../DrawerButton/DrawerButton';
 import './Setting.css';
 
 class Settings extends Component {
@@ -31,20 +32,21 @@ class Settings extends Component {
   }
 
   render() {
-    const { changeLogic, logic, changeTheme, theme, open } = this.props;
-    return (
+    const {
+      changeLogic,
+      logic,
+      changeTheme,
+      theme,
+      open,
+      toggleDrawer,
+    } = this.props;
+    return [
+      <DrawerButton toggle={toggleDrawer} />,
       <div
         id="settings"
         className={open ? 'drawer-open' : 'drawer-close'}
         ref={this.setWrapperRef}
       >
-        <Switch
-          title="Logic"
-          change={changeLogic}
-          value={logic}
-          trueText="Expression"
-          falseText="Immediate"
-        />
         <Switch
           title="Theme"
           change={changeTheme}
@@ -52,8 +54,15 @@ class Settings extends Component {
           trueText="Dark"
           falseText="Light"
         />
-      </div>
-    );
+        <Switch
+          title="Logic"
+          change={changeLogic}
+          value={logic}
+          trueText="Expression"
+          falseText="Immediate"
+        />
+      </div>,
+    ];
   }
 }
 
