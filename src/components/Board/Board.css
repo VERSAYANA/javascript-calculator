@@ -4,13 +4,13 @@
 }
 #numbers {
   background-color: var(--primary-color);
+  color: var(--primary-text);
   display: grid;
   grid-template: repeat(4, 70px) / repeat(3, 70px);
-  color: rgba(255, 255, 255, 0.87);
 }
 #oprators {
   background-color: var(--accent-color);
+  color: var(--accent-text);
   display: grid;
   grid-template: repeat(5, 56px) / 70px;
-  color: rgba(255, 255, 255, 0.87);
 }

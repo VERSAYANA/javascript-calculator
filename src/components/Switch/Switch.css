@@ -1,18 +1,23 @@
 #switch {
   display: flex;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--primary-text);
   justify-content: space-between;
   align-items: center;
 }
+.switch-title {
+  margin-right: 24px;
+}
 .switch-button {
-  background-color: transparent;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
   cursor: pointer;
   border: 1px solid black;
-  color: rgba(255, 255, 255, 0.87);
   padding: 8px;
+  width: 120px;
 }
 .switch-active {
   background-color: var(--accent-color);
+  color: var(--accent-text);
 }
 #left-button {
   border-top-left-radius: 5px;
