@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import CalculatorContainer from './containers/CalculatorContainer/CalculatorContainer';
-import Settings from './components/Settings/Settings';
+import DrawerContainer from './containers/DrawerContainer/DrawerContainer';
 import DrawerButton from './containers/DrawerButton/DrawerButton';
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className={theme ? 'App dark-theme' : 'App light-theme'}>
         <DrawerButton />
         <CalculatorContainer />
-        <Settings />
+        <DrawerContainer />
       </div>
     );
   }

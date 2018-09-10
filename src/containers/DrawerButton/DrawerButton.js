@@ -22,7 +22,9 @@ DrawerButton.propTypes = {
   toggleDrawer: PropTypes.func,
 };
 
-export default (DrawerButton = connect(
+DrawerButton = connect(
   null,
   mapDispatchToProps,
-)(DrawerButton));
+)(DrawerButton);
+
+export default DrawerButton;
