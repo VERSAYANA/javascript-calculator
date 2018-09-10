@@ -1,11 +1,9 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { changeLogic, changeTheme, toggleDrawer } from '../../actions';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Switch from '../Switch/Switch';
-import DrawerButton from '../DrawerButton/DrawerButton';
-import './Setting.css';
+import './Drawer.css';
 
-class Settings extends Component {
+class Drawer extends Component {
   constructor(props) {
     super(props);
 
@@ -32,16 +30,8 @@ class Settings extends Component {
   }
 
   render() {
-    const {
-      changeLogic,
-      logic,
-      changeTheme,
-      theme,
-      open,
-      toggleDrawer,
-    } = this.props;
-    return [
-      <DrawerButton toggle={toggleDrawer} />,
+    const { logic, theme, open, changeTheme, changeLogic } = this.props;
+    return (
       <div
         id="settings"
         className={open ? 'drawer-open' : 'drawer-close'}
@@ -61,23 +51,18 @@ class Settings extends Component {
           trueText="Expression"
           falseText="Immediate"
         />
-      </div>,
-    ];
+      </div>
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
-  logic: state.logic,
-  theme: state.theme,
-  open: state.drawer,
-});
-const mapDispatchToProps = (dispatch) => ({
-  changeLogic: (logic) => dispatch(changeLogic(logic)),
-  changeTheme: (theme) => dispatch(changeTheme(theme)),
-  toggleDrawer: () => dispatch(toggleDrawer()),
-});
+Drawer.propTypes = {
+  logic: PropTypes.bool,
+  theme: PropTypes.bool,
+  open: PropTypes.bool,
+  changeLogic: PropTypes.func,
+  changeTheme: PropTypes.func,
+  toggleDrawer: PropTypes.func,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Settings);
+export default Drawer;

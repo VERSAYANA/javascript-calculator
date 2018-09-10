@@ -13,7 +13,7 @@ const Display = ({ value, input }) => {
 };
 
 Display.propTypes = {
-  // value: PropTypes.string,
+  value: PropTypes.string,
   input: PropTypes.string,
 };
 

@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
         return {
           input: '',
           result: 0,
-          display: 0,
+          display: '0',
           logic: state.logic,
           theme: state.theme,
           drawer: false,
@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
         return {
           input: state.input + action.input,
           result: calResult(state.input, state.logic),
-          display: calResult(state.input, state.logic),
+          display: calResult(state.input, state.logic).toString(),
           logic: state.logic,
           theme: state.theme,
           drawer: false,
@@ -92,7 +92,7 @@ export default function(state = initialState, action) {
         };
       }
 
-      if (state.display == 0) {
+      if (state.display === '0') {
         return {
           input: action.input,
           result: 0,
