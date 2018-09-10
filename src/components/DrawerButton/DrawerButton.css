@@ -1,9 +1,9 @@
-#drawer {
+#drawer-button {
   position: fixed;
   top: 32px;
   left: 32px;
 }
-#drawer svg {
+#drawer-button svg {
   fill: var(--accent-color);
   width: 32px;
   height: 32px;

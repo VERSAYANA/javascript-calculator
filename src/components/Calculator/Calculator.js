@@ -4,24 +4,17 @@ import { newInput, toggleDrawer } from '../../actions';
 import './Calculator.css';
 import Display from '../Display/Display';
 import Board from '../Board/Board';
-import Drawer from '../Drawer/Drawer';
+import DrawerButton from '../DrawerButton/DrawerButton';
 
 class Calculator extends Component {
   render() {
-    const {
-      input,
-      result,
-      newInput,
-      display,
-      drawer,
-      toggleDrawer,
-    } = this.props;
+    const { input, newInput, display, drawer, toggleDrawer } = this.props;
 
     return (
       <div id="calculator">
         <Display value={display} input={input} />
         <Board newInput={newInput} />
-        <Drawer show={drawer} toggle={toggleDrawer} />
+        <DrawerButton toggle={toggleDrawer} />
       </div>
     );
   }
