@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import Calculator from './components/Calculator/Calculator';
+import CalculatorContainer from './containers/CalculatorContainer/CalculatorContainer';
 import Settings from './components/Settings/Settings';
 
 class App extends Component {
   render() {
     const { theme } = this.props;
     return (
-      <div className={theme ? "App dark-theme" : "App light-theme"}>
-        <Calculator />
+      <div className={theme ? 'App dark-theme' : 'App light-theme'}>
+        <CalculatorContainer />
         <Settings />
       </div>
     );
@@ -17,8 +17,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  theme: state.theme
-})
+  theme: state.theme,
+});
 
 export default connect(
   mapStateToProps,
