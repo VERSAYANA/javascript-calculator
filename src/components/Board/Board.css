@@ -14,3 +14,12 @@
   display: grid;
   grid-template: repeat(5, 56px) / 70px;
 }
+
+@media (max-width: 600px) and (orientation: portrait) {
+  #numbers {
+    grid-template: repeat(4, calc(100vw / 4)) / repeat(3, calc(100vw / 4));
+  }
+  #oprators {
+    grid-template: repeat(5, auto) / calc(100vw / 4);
+  }
+}

@@ -1,6 +1,12 @@
 #calculator {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  /* background-color: black; */
   box-shadow: var(--shadow-4dp);
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  #calculator {
+    height: 100%;
+  }
 }
