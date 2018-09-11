@@ -6,13 +6,13 @@
   background-color: var(--primary-color);
   color: var(--primary-text);
   display: grid;
-  grid-template: repeat(4, 70px) / repeat(3, 70px);
+  grid-template: repeat(4, 80px) / repeat(3, 80px);
 }
 #oprators {
   background-color: var(--accent-color);
   color: var(--accent-text);
   display: grid;
-  grid-template: repeat(5, 56px) / 70px;
+  grid-template: repeat(5, 64px) / 80px;
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
