@@ -9,12 +9,37 @@
   height: 100%;
   /* width: 360px; */
   padding: 16px;
-  transition: transform 0.4s;
+  transition: transform 0.25s;
   z-index: 10;
+}
+#settings-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+}
+#close-container {
+  padding-right: 32px;
+  cursor: pointer;
+}
+#settings-header svg {
+  fill: var(--accent-color);
+  width: 32px;
+  height: 32px;
+}
+#settings-header header {
+  font-size: 24px;
+  color: var(--accent-color);
+  font-weight: 500;
 }
 .drawer-open {
   transform: translateX(0);
 }
 .drawer-close {
   transform: translateX(-100%);
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  #settings {
+    font-size: 14px;
+  }
 }

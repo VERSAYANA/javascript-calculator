@@ -3,9 +3,10 @@
   color: var(--primary-text);
   justify-content: space-between;
   align-items: center;
+  height: 48px;
 }
 .switch-title {
-  margin-right: 24px;
+  margin-right: 16px;
 }
 .switch-button {
   background-color: var(--primary-color);
@@ -14,6 +15,7 @@
   border: 1px solid black;
   padding: 8px;
   width: 120px;
+  outline: none;
 }
 .switch-active {
   background-color: var(--accent-color);
@@ -26,4 +28,9 @@
 #right-button {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  .switch-button {
+    width: 100px;
+  }
 }
