@@ -38,6 +38,16 @@ export default function(state = initialState, action) {
       }
 
       if (action.input === '=') {
+        if (lastChar === '=') {
+          return {
+            input: action.input,
+            result: 0,
+            display: action.input,
+            logic: state.logic,
+            theme: state.theme,
+            drawer: false,
+          };
+        }
         return {
           input: state.input + action.input,
           result: calResult(state.input, state.logic),
