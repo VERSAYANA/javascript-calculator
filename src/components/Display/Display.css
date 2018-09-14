@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
-  #display {
+  #display-container {
     flex: 1;
   }
 }
