@@ -5,9 +5,9 @@ import './Display.css';
 
 const Display = ({ value, input }) => {
   return (
-    <div id="display">
+    <div id="display-container">
       <span id="input">{input}</span>
-      <span>{value}</span>
+      <span id="display">{value}</span>
     </div>
   );
 };
