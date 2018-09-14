@@ -29,14 +29,12 @@ export default function(state = initialState, action) {
 
       if (action.input === '=') {
         const result = calResult(state.input, state.logic);
-        console.log('=');
         return {
           ...state,
           display: result,
           result: result,
         };
       } else if (action.input === 'AC') {
-        console.log('clear');
         return {
           ...state,
           input: '',
