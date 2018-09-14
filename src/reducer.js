@@ -6,6 +6,7 @@ import {
 } from './actionTypes';
 import calResult from './modules/calResult';
 import isOperator from './modules/isOpreator';
+import containDecimal from './modules/containDecimal';
 
 // logic = true : Formula
 // logic = false : Immediate
@@ -14,7 +15,7 @@ import isOperator from './modules/isOpreator';
 const initialState = {
   input: '',
   result: 0,
-  display: '',
+  display: '0',
   logic: true,
   theme: true,
   drawer: false,
@@ -26,101 +27,70 @@ export default function(state = initialState, action) {
       const lastCharIndex = state.input.length - 1;
       const lastChar = state.input.charAt(lastCharIndex);
 
-      if (action.input === 'AC') {
-        return {
-          input: '',
-          result: 0,
-          display: '0',
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
-        };
-      }
-
       if (action.input === '=') {
-        if (lastChar === '=') {
+        const result = calResult(state.input, state.logic);
+        console.log('=');
+        return {
+          ...state,
+          display: result,
+          result: result,
+        };
+      } else if (action.input === 'AC') {
+        console.log('clear');
+        return {
+          ...state,
+          input: '',
+          display: '0',
+        };
+      } else if (isOperator(action.input)) {
+        if (state.result === state.display) {
           return {
-            input: action.input,
-            result: 0,
-            display: action.input,
-            logic: state.logic,
-            theme: state.theme,
-            drawer: false,
+            ...state,
+            input: `${state.result}${action.input}`,
           };
         }
-        return {
-          input: state.input + action.input,
-          result: calResult(state.input, state.logic),
-          display: calResult(state.input, state.logic).toString(),
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
-        };
-      }
-
-      if (isOperator(action.input)) {
         if (isOperator(lastChar)) {
           return {
+            ...state,
             input: state.input.slice(0, lastCharIndex) + action.input,
-            result: state.result,
             display: action.input,
-            logic: state.logic,
-            theme: state.theme,
-            drawer: false,
           };
         }
-
         return {
+          ...state,
           input: state.input + action.input,
-          result: state.result,
           display: action.input,
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
         };
-      }
-
-      if (lastChar === '=') {
+      } else if (action.input === '.') {
+        if (containDecimal(state.display)) {
+          return state;
+        }
         return {
-          input: action.input,
-          result: 0,
-          display: action.input,
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
-        };
-      }
-
-      if (isOperator(lastChar)) {
-        return {
+          ...state,
           input: state.input + action.input,
-          result: state.result,
-          display: action.input,
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
+          display: state.display + action.input,
         };
-      }
-
-      if (state.display === '0') {
+      } else {
+        if (state.display === '0') {
+          return {
+            ...state,
+            input: action.input,
+            display: action.input,
+          };
+        }
+        if (isOperator(lastChar)) {
+          return {
+            ...state,
+            input: state.input + action.input,
+            display: action.input,
+          };
+        }
         return {
-          input: action.input,
-          result: 0,
-          display: action.input,
-          logic: state.logic,
-          theme: state.theme,
-          drawer: false,
+          ...state,
+          input: state.input + action.input,
+          display: state.display + action.input,
         };
       }
-
-      return {
-        input: state.input + action.input,
-        result: state.result,
-        display: state.display + action.input,
-        logic: state.logic,
-        theme: state.theme,
-        drawer: false,
-      };
 
     case CHANGE_LOGIC:
       return {

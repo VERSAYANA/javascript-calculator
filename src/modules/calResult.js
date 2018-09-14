@@ -2,7 +2,7 @@ function calResult(input, logic) {
   const numbers = input.split(/[/+x-]/);
   const operators = input.split(/[^/+x-]/).filter((x) => x);
 
-  if(logic) {
+  if (logic) {
     return +calFormulaExpression(numbers, operators).toFixed(6);
   } else {
     return +calImmediateExecutionResult(numbers, operators).toFixed(6);
