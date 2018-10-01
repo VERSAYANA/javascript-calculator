@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { newInput } from '../../actions';
 import Calculator from '../../components/Calculator/Calculator';
+import formatDisplay from '../../modules/formatDisplay';
 
 const mapStateToProps = (state) => ({
-  input: state.input.split('').join(' '),
+  input: formatDisplay(state.input),
   display: state.display,
 });
 
