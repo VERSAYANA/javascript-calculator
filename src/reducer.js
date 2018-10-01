@@ -31,7 +31,7 @@ export default function(state = initialState, action) {
         const result = calResult(state.input, state.logic);
         return {
           ...state,
-          display: result,
+          display: result.toString(),
           result: result,
         };
       } else if (action.input === 'AC') {
@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
           display: '0',
         };
       } else if (isOperator(action.input)) {
-        if (state.result === state.display) {
+        if (state.result.toString() === state.display) {
           return {
             ...state,
             input: `${state.result}${action.input}`,
@@ -63,7 +63,7 @@ export default function(state = initialState, action) {
         if (
           containDecimal(state.display.toString()) ||
           isOperator(lastChar) ||
-          state.result === state.display
+          state.result.toString() === state.display
         ) {
           return state;
         }
