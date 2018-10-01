@@ -1,4 +1,4 @@
-function formatDisplay(str) {
+function formatInput(str) {
   let result = [];
   const regex = /[0-9.]/;
   for (let i = 0; i < str.length; i++) {
@@ -11,4 +11,4 @@ function formatDisplay(str) {
   return result.join('');
 }
 
-export default formatDisplay;
+export default formatInput;
