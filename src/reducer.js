@@ -60,7 +60,7 @@ export default function(state = initialState, action) {
           display: action.input,
         };
       } else if (action.input === '.') {
-        if (containDecimal(state.display)) {
+        if (containDecimal(state.display) || isOperator(lastChar)) {
           return state;
         }
         return {
