@@ -28,6 +28,9 @@ export default function(state = initialState, action) {
       const lastChar = state.input.charAt(lastCharIndex);
 
       if (action.input === '=') {
+        if (!state.input.split('').find((ch) => isOperator(ch))) {
+          return state;
+        }
         const result = calResult(state.input, state.logic);
         return {
           ...state,
