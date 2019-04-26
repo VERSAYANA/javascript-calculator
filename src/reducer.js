@@ -16,8 +16,8 @@ const initialState = {
   input: '',
   result: 0,
   display: '0',
-  logic: false,
-  theme: false,
+  logic: true,
+  theme: true,
   drawer: false,
 };
 
