@@ -17,7 +17,7 @@ const initialState = {
   result: 0,
   display: '0',
   logic: true,
-  theme: false,
+  theme: true,
   drawer: false,
 };
 
