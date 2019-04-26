@@ -5,6 +5,7 @@ export const numbers = [
   { id: 'four', value: '4' },
   { id: 'five', value: '5' },
   { id: 'six', value: '6' },
+  { id: 'seven', value: '7' },
   { id: 'eight', value: '8' },
   { id: 'nine', value: '9' },
   { id: 'decimal', value: '.' },
