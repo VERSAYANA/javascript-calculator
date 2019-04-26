@@ -3,8 +3,18 @@
   "name": "JavaScript Calculator",
   "icons": [
     {
-      "src": "calculator-4-192.png",
+      "src": "calculator-4-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "calculator-4-128.png",
       "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "calculator-4-192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
