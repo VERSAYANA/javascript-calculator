@@ -3,19 +3,19 @@
   "name": "JavaScript Calculator",
   "icons": [
     {
-      "src": "calculator-192.png",
-      "sizes": "192x192",
+      "src": "calculator-4-192.png",
+      "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "calculator-512.png",
+      "src": "calculator-4-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#d73143",
+  "theme_color": "#3f51b5",
   "background_color": "#fff",
   "orientation": "portrait"
 }
