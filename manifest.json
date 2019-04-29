@@ -1,0 +1,31 @@
+{
+  "short_name": "Calculator",
+  "name": "JavaScript Calculator",
+  "icons": [
+    {
+      "src": "calculator-4-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "calculator-4-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "calculator-4-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "calculator-4-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#3f51b5",
+  "background_color": "#fff",
+  "orientation": "portrait"
+}
